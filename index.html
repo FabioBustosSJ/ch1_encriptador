@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Encriptador Alura</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="ppal">
+      <img src="biblioteca/Logo@2x.png" alt="Logo Alura Latam">
+      <h1>Encriptador Alura - Latam</h1>
+    </div>
+  </header>
+
+  <main>
+    <table class="tabla">
+      <tr>
+        <td class="celda">
+          <textarea name="textarea1" rows="10" cols="50" class="textarea"
+          placeholder="No mayúsculas, No caracteres especiales." id="ta1" autofocus 
+          style="text-transform:lowercase" onkeypress="return validar(event)"></textarea>
+
+          <button onclick="encriptar()" value="Encriptar">Encriptar</button>
+
+          <button onclick="desencriptar()" value="Desencriptar">Desencriptar</button>
+
+          <button class="btnImagen" onclick="limpiar('ta1')" value="Limpiar" title="Borrar texto">
+            <img src="biblioteca/eraser-solid.svg" alt="Borrar texto" class="im">
+          </button>
+        </td>
+
+        <td class="celda">
+          <textarea name="textarea2" rows="10" cols="50" class="textarea"
+          readonly id="ta2"></textarea>
+          <button onclick="copiar()" value="Copiar">Copiar</button>
+        </td>
+        <td class="celda">
+          <img src="biblioteca/Munieco.png" id="munie" alt="Imagen Alura Latam">
+          </a>
+        </td>
+      </tr>
+    </table>
+    <span style="font-size: 4rem;"><i class="fas fa-user"></i></span>    
+  </main>
+  <script>
+
+      /*-----------     VALIDA TEXTO PERMITIENDO MINUSCULAS Y ESPACIOS     ----------*/
+    function validar(e) {
+      tecla = (document.all) ? e.keyCode : e.which;
+      if (tecla==8) return true;
+      patron =/[a-z\s]/;
+
+      te = String.fromCharCode(tecla);
+      return patron.test(te);
+    }    
+    var x = 0;
+    var cajaDeTexto = "";
+
+    /* ----------- LIMPIAR TEXTO -----------*/
+    function limpiar(cajaDeTexto){
+
+      document.getElementById(cajaDeTexto).value ="";
+      document.getElementById(cajaDeTexto).focus();
+    }
+
+    // ------------ COPIAR ------------
+    function copiar(){
+      var copiado = (document.getElementById("ta2"));
+      cajaDeTexto = "ta2";
+      copiado.select();
+      document.execCommand("copy");
+      limpiar(cajaDeTexto);
+    }
+
+    // ------------ ENCRIPTAR ------------
+    function encriptar(){
+      var cadena_final ="";
+      x = (document.getElementById("ta1").value).length;      
+      var contenido = document.getElementById("ta1").value.toLowerCase();
+      var cajaDeTexto = "ta1";
+      for (var i= 0; i < x; i++){
+        switch(contenido[i]){
+          case "e":
+            cadena_final =cadena_final + "enter";
+            break;
+          case "i":
+            cadena_final =cadena_final + "imes";
+            break;
+          case "a":
+            cadena_final =cadena_final + "ai";
+            break;
+          case "o":
+            cadena_final =cadena_final + "ober";
+            break;
+          case "u":
+            cadena_final =cadena_final + "ufat";
+            break;
+          default:          
+            cadena_final =cadena_final + contenido[i];
+        }
+        document.getElementById("ta2").value = cadena_final;
+        
+      }
+      limpiar(cajaDeTexto);
+    }
+
+    //-------------- DESENCRIPTAR -------------
+    function desencriptar(){          
+      var cadena_final ="";
+      x = (document.getElementById("ta1").value).length;      
+      var contenido = document.getElementById("ta1").value;
+      var cajaDeTexto = "ta1";
+      for (var i= 0; i < x; i++){
+        switch(contenido[i]){
+          case "e":
+            cadena_final =cadena_final + "e";
+            i = i + 4;
+            break;
+          case "i":
+            cadena_final =cadena_final + "i";
+            i = i + 3;
+            break;
+          case "a":
+            cadena_final =cadena_final + "a";
+            i = i + 1;
+            break;
+          case "o":
+            cadena_final =cadena_final + "o";
+            i = i + 3;
+            break;
+          case "u":
+            cadena_final =cadena_final + "u";
+            i = i + 3;
+            break;
+          default:          
+            cadena_final =cadena_final + contenido[i];
+        }
+        document.getElementById("ta2").value = cadena_final;
+      }
+      limpiar(cajaDeTexto);
+    }
+  </script>
+  <footer>    
+      <p class="copyright">&copy Copyright Encriptador Alura-Latam 2022</p>
+      <div class="redes">
+        <a href="https://www.linkedin.com/in/fabian-bustos-sanjuan/" target="_blank" rel="noopener noreferrer">
+          <img src="./biblioteca/linkedin_black_logo_icon_147114.svg" class="lnk" alt="linkedin">
+        </a>
+        <a href="https://github.com/FabioBustosSJ/" target="_blank"
+        rel="noopener noreferrer">
+          <img src="./biblioteca/github-logo_icon-icons.com_73546.svg" class="git" alt="github">
+        </a>
+      </div>
+      <span class="fas fa-bars"></span>
+<i class="fas fa-thumbs-up"></i>
+<div class="fa fa-bars fa-4x fa-border"></div>
+  </footer>
+</body>
+</html>

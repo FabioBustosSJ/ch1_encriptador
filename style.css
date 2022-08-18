@@ -1,0 +1,155 @@
+body{
+	background: linear-gradient(#90CAF9, #E3F2FD,#90CAF9);
+}
+
+h1{
+	padding:20px 0;
+	font-size:2m;
+	color:rgb(10 56 113);
+	text-shadow: 0 4px 4px rgba(245, 245, 245, 0.721);
+	margin:0;
+}
+
+h1:first-letter{
+	font-size:40px;   
+}
+
+a{
+	text-decoration: none;
+}
+
+.ppal{
+	background:#90CAF9;	
+	text-align: center;
+}
+
+.ppal img{
+	filter: drop-shadow(6px 5px 2px rgba(245, 245, 245, 0.721));
+}
+
+.tabla{
+	width:100%;
+	background: linear-gradient(#90CAF9, #E3F2FD,#90CAF9);
+	text-align: center;
+	padding:50px 0;
+}
+
+.tabla .celda{
+	    border-left: solid 25px transparent;
+    border-right: solid 25px transparent;
+	text-align: center;
+    width: 40%;
+}
+
+.tabla .textarea{
+	border-radius: 0 25px;
+	box-shadow: 4px 5px 15px #000000;
+}
+
+.tabla .celdaImg{
+	width: 33%;
+}
+
+.tabla .celda img{
+	max-width: 100%;
+}
+
+.tabla .textarea{
+	width:100%;
+}
+
+.tabla button{
+	width: 100px;
+	padding: 0x 20px;
+	margin-top: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+	transition: 1s all;
+	cursor: pointer;
+	box-shadow: 4px 5px 15px #000000;
+}
+
+.tabla button:hover{
+  background: darkgray;
+  transform:scale(1.1);
+}
+
+.tabla .btnImagen{
+	width: 40px;
+	background-color: transparent;
+	float: right;
+	margin-top: 10px;
+	border: solid 2px cadetblue;
+	border-radius: 50%;
+	backdrop-filter: contrast(0.5);
+	margin-right: 5px;
+}
+
+.tabla .btnImagen:active{
+	border-color: #FD0209;
+	transition: 400ms;
+ }
+
+.im{
+	width: 100%;
+	background: transparent;
+	border: none;
+}
+
+footer{
+  text-align: center;
+	height: 120px;
+  padding: 50px 0 0 0;
+  background-color: #90CAF9;
+}
+
+.copyright{
+	color:rgb(10 56 113);
+	font-size:16px;
+	text-shadow: 0 2px 2px lightgray;
+}
+
+.redes img{	
+	width: 40px;
+	padding: 0 10px;
+	filter: invert(5%) sepia(100%) saturate(18000%) hue-rotate(200deg) brightness(80%) contrast(100%) drop-shadow(0 4px 4px rgba(245, 245, 245, 0.8));
+	
+}
+
+
+			/*  MEDIA QUERY  */
+
+@media screen and (max-width:840px){
+	h1{
+		font-size:3em;
+	}
+
+	h1:first-letter{
+		font-size:50px;   
+	}
+
+	.tabla .celda{
+		width:auto;
+		    border: solid 25px transparent;
+		display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+	}
+
+	#munie{
+		display: none;
+	}
+
+	footer{
+		height:80px;		
+	}
+
+	footer .redes{
+		padding:0 20px;
+	}
+	footer .redes img{
+		position: relative;
+		padding: 0 15px;
+	}
+
+}
